@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package employee_v1;
+
+option go_package = "github.com/alexeipyp/test_grpc/pkg/employee/v1;employee_v1";
+
+service Employee {
+    rpc PopulateWithAbsenceStatus(PopulateRequest) returns (PopulateResponse);
+}
+
+message PopulateRequest {
+    EmployeeInfo info = 1;
+}
+
+message PopulateResponse {
+    EmployeeInfo info = 1;
+}
+
+message EmployeeInfo {
+    string displayName = 1;
+    string email = 2;
+    string mobilePhone = 3;
+    string workPhone = 4;
+}

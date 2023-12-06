@@ -1,0 +1,11 @@
+[Unit]
+Description=Test gRPC service for Protei IT-School
+After=network.target
+Requires=network.target
+
+[Service]
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

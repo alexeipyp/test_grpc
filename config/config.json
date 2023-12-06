@@ -1,0 +1,27 @@
+{
+    "env": "dev",
+    "scheduler": {
+        "queue_size": 10,
+        "worker_pool_size": 2
+    },
+    "cache": {
+        "lifetime": "12h"
+    },
+    "external_http_connection": {
+        "host": "127.0.0.1",
+        "port": 5432,
+        "username": "admin",
+        "password": "admin",
+        "timeout": "5s"
+    },
+    "grpc": {
+        "host": "localhost",
+        "port": 44044
+    },
+    "log": {
+        "log_filename": "log.log",
+        "debug_log_filename": "debug.log",
+        "grpc_trace_log_filename": "grpctracelog.log",
+        "http_trace_log_filename": "httptracelog.log"
+    }
+}
