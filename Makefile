@@ -1,6 +1,6 @@
 SERVICE_NAME=test_grpc
 INSTALL_PATH=/usr/local/bin
-CONFIG_DIR=/etc/$(SERVICE_NAME)
+CONFIG_DIR=/etc/$(SERVICE_NAME)/
 CONFIG_FILENAME=config.json
 SYSTEMD_SETUP_PATH=/etc/systemd/system/
 LOGS_DIR=/var/log/$(SERVICE_NAME)/
@@ -50,12 +50,12 @@ setup-config:
 ifneq ($(shell id -u), 0)
 	sudo make $@
 else
-	mkdir -p $(CONFIG_DIR) && cp ./config/$(CONFIG_FILENAME) $(CONFIG_DIR)/$(CONFIG_FILENAME)
+	mkdir -p $(CONFIG_DIR) && cp ./config/$(CONFIG_FILENAME) $(CONFIG_DIR)$(CONFIG_FILENAME)
 endif
 
 gen-env-config:
 	@echo "[Service]" > ./init/env.conf
-	@echo "Environment=\"CONFIG_PATH=$(CONFIG_DIR)/$(CONFIG_FILENAME)\"" >> ./init/env.conf
+	@echo "Environment=\"CONFIG_PATH=$(CONFIG_DIR)$(CONFIG_FILENAME)\"" >> ./init/env.conf
 	@echo "Environment=\"LOGS_PATH=$(LOGS_DIR)\"" >> ./init/env.conf
 	@echo "ExecStart=\"$(INSTALL_PATH)/$(SERVICE_NAME)\"" >> ./init/env.conf
 

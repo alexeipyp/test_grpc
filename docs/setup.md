@@ -29,7 +29,7 @@
 
 Изменяемые параметры:
 * CONFIG_DIR - путь к директории с файлом конфигурации
-    * По умолчанию: /etc/$(SERVICE_NAME)
+    * По умолчанию: /etc/$(SERVICE_NAME)/
 * CONFIG_FILENAME - имя файла конфигурации
     * По умолчанию: config.json
 * INSTALL_PATH - путь установки исполняемого файла приложения
@@ -41,7 +41,7 @@
 * make install-systemd-service LOGS_PATH=/var/log/logsarehere
 
 Значения переменных окружения устанавливаются на основе вышеуказанных параметров:
-* CONFIG_PATH = CONFIG_DIR + / + CONFIG_FILENAME
+* CONFIG_PATH = CONFIG_DIR + CONFIG_FILENAME
 * LOGS_PATH = LOGS_DIR
 
 Запуск сервиса производится через команду: systemctl start test_grpc
